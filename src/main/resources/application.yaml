@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    # Para utilizar banco de dados postgres, descomentar configurações
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5435/teste
+    username: postgres
+    password: postgres
+    configuration:
+      maximum-pool-size: 30
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  # Swagger
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
