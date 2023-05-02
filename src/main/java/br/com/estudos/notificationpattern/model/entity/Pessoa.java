@@ -1,18 +1,17 @@
 package br.com.estudos.notificationpattern.model.entity;
 
-import br.com.estudos.notificationpattern.exception.BusinessException;
-import br.com.estudos.notificationpattern.util.validation.PessoaValidation;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table
-public class Pessoa extends BaseEntity {
+public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,10 +29,4 @@ public class Pessoa extends BaseEntity {
     @Column
     private String email;
 
-    @Override
-    public void validation() throws BusinessException {
-        var result = new PessoaValidation();
-
-        validateResult(result.startValidate(this));
-    }
 }

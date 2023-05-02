@@ -1,13 +1,13 @@
 package br.com.estudos.notificationpattern.exception;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.LinkedList;
 
-public class BusinessException extends Exception{
+public class BusinessException extends RuntimeException{
 
     private static final long serialVersionUID = 1L;
 
-    private List<String> messages = new ArrayList<>();
+    private Collection<String> messages = new LinkedList<>();
 
     private Integer code;
 
@@ -19,7 +19,7 @@ public class BusinessException extends Exception{
         super(cause);
     }
 
-    public BusinessException(List<String> messages) {
+    public BusinessException(Collection<String> messages) {
         super();
         this.messages = messages;
     }
@@ -29,7 +29,7 @@ public class BusinessException extends Exception{
         this.messages.add(message);
     }
 
-    public BusinessException(List<String> messages, Integer code) {
+    public BusinessException(Collection<String> messages, Integer code) {
         super();
         this.messages = messages;
         this.code = code;
@@ -46,7 +46,7 @@ public class BusinessException extends Exception{
         this.messages.add(message);
     }
 
-    public BusinessException(Throwable cause, List<String> messages) {
+    public BusinessException(Throwable cause, Collection<String> messages) {
         super(cause);
         this.messages = messages;
     }
@@ -57,13 +57,13 @@ public class BusinessException extends Exception{
         this.code = code;
     }
 
-    public BusinessException(Throwable cause, List<String> messages, Integer code) {
+    public BusinessException(Throwable cause, Collection<String> messages, Integer code) {
         super(cause);
         this.messages = messages;
         this.code = code;
     }
 
-    public List<String> getMessages() {
+    public Collection<String> getMessages() {
         return messages;
     }
 

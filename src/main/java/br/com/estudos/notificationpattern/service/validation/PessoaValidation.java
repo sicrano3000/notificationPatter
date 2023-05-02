@@ -1,8 +1,8 @@
-package br.com.estudos.notificationpattern.util.validation;
+package br.com.estudos.notificationpattern.service.validation;
 
 import br.com.estudos.notificationpattern.model.entity.Pessoa;
 import br.com.fluentvalidator.AbstractValidator;
-import br.com.fluentvalidator.context.ValidationResult;
+import org.springframework.stereotype.Service;
 
 import static br.com.fluentvalidator.predicate.ComparablePredicate.greaterThanOrEqual;
 import static br.com.fluentvalidator.predicate.LogicalPredicate.not;
@@ -10,6 +10,7 @@ import static br.com.fluentvalidator.predicate.ObjectPredicate.nullValue;
 import static br.com.fluentvalidator.predicate.StringPredicate.stringContains;
 import static br.com.fluentvalidator.predicate.StringPredicate.stringEmptyOrNull;
 
+@Service
 public class PessoaValidation extends AbstractValidator<Pessoa> {
 
     @Override
@@ -39,10 +40,6 @@ public class PessoaValidation extends AbstractValidator<Pessoa> {
                 .must(stringContains(".com").or(stringContains(".com.br")))
                 .withMessage("O email deve conter um domínio!")
                 .withAttempedValue(Pessoa::getEmail);
-    }
-
-    public ValidationResult startValidate(Pessoa pessoa) {
-        return this.validate(pessoa);
     }
 
 }

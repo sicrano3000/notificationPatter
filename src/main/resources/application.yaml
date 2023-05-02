@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    # Para utilizar banco de dados postgres, descomentar configurações
+    # Para utilizar banco de dados postgres, descomentar configuraï¿½ï¿½es
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5435/teste
+    url: jdbc:postgresql://localhost:5436/teste
     username: postgres
     password: postgres
     configuration:

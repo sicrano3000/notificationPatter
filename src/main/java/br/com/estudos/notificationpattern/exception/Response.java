@@ -1,10 +1,10 @@
-package br.com.estudos.notificationpattern.model.dto;
+package br.com.estudos.notificationpattern.exception;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import java.util.Objects;
 
 @Builder
@@ -19,7 +19,7 @@ public class Response<M> implements Serializable {
     private Integer code = null;
 
     @JsonProperty("messages")
-    private List<String> messages = null;
+    private Collection<String> messages = null;
 
     @JsonProperty("result")
     private M result = null;
@@ -28,7 +28,7 @@ public class Response<M> implements Serializable {
         super();
     }
 
-    public Response(String status, Integer code, List<String> messages, M result) {
+    public Response(String status, Integer code, Collection<String> messages, M result) {
         super();
         this.status = status;
         this.code = code;
@@ -44,11 +44,11 @@ public class Response<M> implements Serializable {
         this.code = code;
     }
 
-    public List<String> getMessages() {
+    public Collection<String> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<String> messages) {
+    public void setMessages(Collection<String> messages) {
         this.messages = messages;
     }
 
